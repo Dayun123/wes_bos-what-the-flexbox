@@ -5,7 +5,7 @@
 
 .box {
   color: white;
-  font-size: 100px;
+  font-size: 50px;
   text-align: center;
   padding: 10px;
 }
@@ -20,3 +20,12 @@
 .box8 { background:#bdc3c7;}
 .box9 { background:#2ecc71;}
 .box10 { background:#16a085;}
+
+/* This is our flex container. */
+.container {
+  /* This makes our container a flex-container, and it will take up the entire width of the page like a block-level item. If we only want the flex container to be the size of the flex-items it contains, we can use 'inline-flex'. */
+  display: flex;
+  border: 10px solid goldenrod;
+  /* Makes the height of our flex-container the same as the height of the viewport, so basically the container will always take up the height of the entire page. This has nothing to do with flexbox, it just will help us to visualize the concepts down the line. */
+  height: 100vh;
+}

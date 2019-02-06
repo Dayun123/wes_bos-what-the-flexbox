@@ -1,0 +1,9 @@
+********* Observations About Wes' Base Style Sheet ********
+
+I noticed that Wes uses a css declaration in the top of his style.css file to normalize the browser styles, so I found a version of it online and a python script that would minify css files and I've gone ahead and added that css file BEFORE the base style.css in the index.html file. Also, Wes makes all the elements on the page use a box-sizing: border-box, which means that the width/height and min/max properties will be based on the contents, padding, and border of boxes, not just the contents.
+
+******** Intro To Flexbox *********
+
+Flexbox is a different way of thinking about layouts, a different mental model, so we need to approach it as such and try not to think about other layout concepts like floats when approaching flexbox.
+
+To utilize the flexbox properties, you will need a parent container, which will be the flex-container. You simply set the display type of the parent container to flex (or inline-flex, covered later), and then all of the items in that container become flex-items.
