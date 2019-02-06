@@ -1,12 +1,11 @@
-/* this determines how the width and height of a box are calculated. Normally, the width/height and min/max properties only include the content of the box, border and padding are not accounted for. Using the box-sizing: border-box; declaration, we tell the browser that we what the width/height and min/max properties to include the content, padding, and border. Notice we use the '*' selector, which sets this property on all elements. */
+ this determines how the width and height of a box are calculated. Normally, the width/height and min/max properties only include the content of the box, border and padding are not accounted for. Using the box-sizing: border-box; declaration, we tell the browser that we what the width/height and min/max properties to include the content, padding, and border. Notice we use the '*' selector, which sets this property on all elements. */
 * {
   box-sizing: border-box;
 }
 
 .box {
   color: white;
-  /* Adjusted to show how justify-content works when the flex-direction is set to column and the height of the flex-container is set. */
-  font-size: 10px;
+  font-size: 50px;
   text-align: center;
   padding: 10px;
 }
@@ -26,9 +25,19 @@
 .container {
   display: flex;
   border: 10px solid mistyrose;
-  /* If we want to align our flex-items in our flex-container, we need the justify-content property. flex-start is the default, and will align the items at the beginning of the main axis (can be the far-left in flex-direction: row or the top-left in flex-direction: column.) */
-  justify-content: center;
-  flex-direction: column;
-  /* We set a height on our container because if we don't, when the flex-direction is column the elements will simply spill down the page, and not bump against the container, so there will be no way to use justify-content correctly. The flex-items will also need to leave some room in the container for justify-content to work with, or else there will be no space left to move the elements in. I've made the font-size smaller, that way the elements heights are smaller. */
-  min-height: 100vh;
+  height: 100vh;
+  /* Allows you to align items along the cross axis. */
+  align-items: flex-start;
+}
+/* If you want to see how align-items: baseline behaves, add it to the .container and uncomment the lines below. */
+/*.box3 {
+  font-size: 200px;
+}
+
+.box5 {
+  font-size: 100px;
+}
+
+.box7 {
+  font-size: 500px;
 }

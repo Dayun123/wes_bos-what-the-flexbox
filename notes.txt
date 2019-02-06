@@ -35,3 +35,9 @@ Justify-content is a property that determines how items are aligned on the main 
     - If you want the items to take up the whole axis and have the same amount of space on both sides, the space evenly property will allow this.
 
 When the main axis runs vertically (flex-direction: column|column-reverse), justify-content can get a litle tricky. You have to ensure that the flex-container has a set-height, and that the flex-items do not take up the whole height of the container, because if they do, there will be no room for the justify-content property to work with. There needs to be some dead space in the height, otherwise, there will be none to place between the flex items. You can set a min-height on the container, or just hard-code something if it is supposed to be an exact height.
+
+************** Alignment and Centering with Align-Items *******************
+
+We just looked at the justify-content property, which is used to align items along the MAIN axis. In contrast, the align-items property aligns the items in the flex-container along the CROSS axis. So, in the default flex-direction (row) the main axis runs left-to-right horizontally and the cross axis runs top-to-bottom vertically. If we want to use align-items then, the flex-container will need to have a height, otherwise, the container will just be as tall as the tallest item. Once the flex-container has a height, we can then align our items in that container.
+
+The default setting for align-items is stretch, which means the items will be stretched along the cross axis. So, if we are in flex-direction: row, the items will be stretched vertically. If we are in flex-direction: column, the elements will be stretched horizontally. There are the standard center, flex-start, and flex-end properties, and there is also one called baseline which is really handy for aligning different sized boxes that have text or some other content that needs to be on the same line.
