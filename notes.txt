@@ -23,3 +23,6 @@ If you have your flex-direction set to column, then you will get one column of f
 ************************ Ordering Elements *************************
 
 Flexbox allows you the power to change the order that the elements appear on the page using the order property on the flex-item. Before flexbox, you would need to use JavaScript in order to move certain elements out of source order. Now, it is easy to do, you just set the order property. The default is 0, so all items greater than 0 will be after all items at 0, and you can use negative numbers to set items before items set to 0. It's important to note that this doesn't change the order of the HTML on the page, just where the item appears. So, the source order in the HTML document will remain the same.
+
+************** Alignment and Centering with Justify-Content ***************
+
