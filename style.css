@@ -31,7 +31,7 @@
   /* The flex-direction determines whether the main axis will be vertical or horizontal, and whether items will be laid out from left-to-right/right-to-left(row and row-reverse) or top-to-bottom/bottom-to-top(column and column-reverse). flex-direction: row; is the default. */
   flex-direction: row;
   /* Allows flex-items to form more rows (in flex-direction row) if they don't all fit on one row because they need to be of a certain width. */
-  flex-wrap: wrap;
+  /*flex-wrap: wrap;*/
 }
 
 .box {
@@ -41,3 +41,16 @@
   width: 33.333333%;
 }
 
+/* If we use the order property on a flex-item, it will allow us to change where it appears on the page, regardless of where it appears in the source. Here, box3 will be after any boxes that have no order set (0) or a negative order set. */
+.box3 {
+  order: 1;
+}
+
+.box1 {
+  order: 2;
+}
+
+/* Order can be negative, so box5 will appear BEFORE any flex-item with an order greater than or equal to 0. */
+.box5 {
+  order: -1;
+}
