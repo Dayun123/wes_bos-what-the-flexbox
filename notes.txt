@@ -26,3 +26,12 @@ Flexbox allows you the power to change the order that the elements appear on the
 
 ************** Alignment and Centering with Justify-Content ***************
 
+Justify-content is a property that determines how items are aligned on the main axis. The main axis, if we remember, is determined by the flex-direction property. It can be along the horizontal, which is row, or the vertical, which is column. You can align the content to the start or end of the axis with flex-start and flex-end. You can center the content with center. There are three properties for adding space between and around the elements.
+  1. Space between
+    - aligns the first item to the flex start and the last item to the flex end, then puts equal space between the rest of the items. The first and last items will be right on the edge of the container.
+  2. Space around
+    - aligns the first item to the flex start and the last item to the flex end along the main axis, then puts equal space on each side of each item. This means the item at the flex start will have half of the space on the side that bumps against the edge of the main axis, as will the item at the flex end.
+  3. Space evenly
+    - If you want the items to take up the whole axis and have the same amount of space on both sides, the space evenly property will allow this.
+
+When the main axis runs vertically (flex-direction: column|column-reverse), justify-content can get a litle tricky. You have to ensure that the flex-container has a set-height, and that the flex-items do not take up the whole height of the container, because if they do, there will be no room for the justify-content property to work with. There needs to be some dead space in the height, otherwise, there will be none to place between the flex items. You can set a min-height on the container, or just hard-code something if it is supposed to be an exact height.
