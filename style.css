@@ -28,4 +28,6 @@
   border: 10px solid goldenrod;
   /* Makes the height of our flex-container the same as the height of the viewport, so basically the container will always take up the height of the entire page. This has nothing to do with flexbox, it just will help us to visualize the concepts down the line. */
   height: 100vh;
+  /* The flex-direction determines whether the main axis will be vertical or horizontal, and whether items will be laid out from left-to-right/right-to-left(row and row-reverse) or top-to-bottom/bottom-to-top(column and column-reverse). flex-direction: row; is the default. */
+  flex-direction: row;
 }
