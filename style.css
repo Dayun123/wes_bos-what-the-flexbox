@@ -30,4 +30,14 @@
   height: 100vh;
   /* The flex-direction determines whether the main axis will be vertical or horizontal, and whether items will be laid out from left-to-right/right-to-left(row and row-reverse) or top-to-bottom/bottom-to-top(column and column-reverse). flex-direction: row; is the default. */
   flex-direction: row;
+  /* Allows flex-items to form more rows (in flex-direction row) if they don't all fit on one row because they need to be of a certain width. */
+  flex-wrap: wrap;
 }
+
+.box {
+  /* Really neat way to add margin of 10px on both sides of the flex-items and subtract this from the varying width of the items. If you want margin between the items, this is a responsive way to do it. You can add padding and border and not worry about calc, since we changed our box-sizing to border-box. */
+  /*width: calc(33.3333333% - 20px);*/
+  /*margin: 10px;*/
+  width: 33.333333%;
+}
+
