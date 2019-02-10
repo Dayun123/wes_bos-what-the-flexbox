@@ -41,3 +41,14 @@ When the main axis runs vertically (flex-direction: column|column-reverse), just
 We just looked at the justify-content property, which is used to align items along the MAIN axis. In contrast, the align-items property aligns the items in the flex-container along the CROSS axis. So, in the default flex-direction (row) the main axis runs left-to-right horizontally and the cross axis runs top-to-bottom vertically. If we want to use align-items then, the flex-container will need to have a height, otherwise, the container will just be as tall as the tallest item. Once the flex-container has a height, we can then align our items in that container.
 
 The default setting for align-items is stretch, which means the items will be stretched along the cross axis. So, if we are in flex-direction: row, the items will be stretched vertically. If we are in flex-direction: column, the elements will be stretched horizontally. There are the standard center, flex-start, and flex-end properties, and there is also one called baseline which is really handy for aligning different sized boxes that have text or some other content that needs to be on the same line.
+
+************** Alignment and Centering with Align-Content *******************
+
+align-content is similar to justify-content in that it's job is to figure out what to do with the extra space left in a container. Justify-content deals with the space along the main axis, while align-content deals with the space along the cross axis. Just like how justify-content needs some dead space on the main axis to work with, align-content needs some dead space on the cross axis to work with. This means, in order to utilize align-content, you will need multiple rows of content, and flex-wrap: wrap will need to be set.
+
+The default setting for align-content is stretch, so once you have multiple rows of flex-items they should stretch their height (in row layouts) to fill the container evenly. Once you start setting align-content, you will notice that the height of the rows will be whatever the tallest item in the row is, so that all items in the row have the same height.
+
+
+****************** A NOTE AT THIS POINT ******************
+
+There are a lot of defaults that get set once you make a container a flex-container. For the first couple of projects where I use flexbox, I should definitely explicitly define all the defaults in the stylesheet that way I'm aware that they are present and that I must manually override them if I want a different behavior.

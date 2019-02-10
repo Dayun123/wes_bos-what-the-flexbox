@@ -1,11 +1,11 @@
- this determines how the width and height of a box are calculated. Normally, the width/height and min/max properties only include the content of the box, border and padding are not accounted for. Using the box-sizing: border-box; declaration, we tell the browser that we what the width/height and min/max properties to include the content, padding, and border. Notice we use the '*' selector, which sets this property on all elements. */
+/* this determines how the width and height of a box are calculated. Normally, the width/height and min/max properties only include the content of the box, border and padding are not accounted for. Using the box-sizing: border-box; declaration, we tell the browser that we what the width/height and min/max properties to include the content, padding, and border. Notice we use the '*' selector, which sets this property on all elements. */
 * {
   box-sizing: border-box;
 }
 
 .box {
   color: white;
-  font-size: 50px;
+  font-size: 40px;
   text-align: center;
   padding: 10px;
 }
@@ -24,20 +24,15 @@
 /* This is our flex container. */
 .container {
   display: flex;
-  border: 10px solid mistyrose;
-  height: 100vh;
-  /* Allows you to align items along the cross axis. */
-  align-items: flex-start;
-}
-/* If you want to see how align-items: baseline behaves, add it to the .container and uncomment the lines below. */
-/*.box3 {
-  font-size: 200px;
+  border: 10px solid black;
+  height: 90vh;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
 }
 
-.box5 {
-  font-size: 100px;
+.box {
+  /* Once you give the boxes a width, you will need to allow them to wrap using flex-wrap: wrap on the flex-container. */
+  width: 33.33333%;
 }
 
-.box7 {
-  font-size: 500px;
-}
