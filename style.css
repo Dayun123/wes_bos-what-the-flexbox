@@ -28,17 +28,21 @@
   height: 90vh;
 }
 
-/* Sets all the flex-items to be equal width. Allows flexbox to intelligently manage the width of the items as the container changes. Normally, the width of the items is determined by the content. */
-.box {
-  flex: 1;
+.box1 {
+  /* Hard to explain how the proportions work here... Basically, setting the flex-grow property will allow this box to add the extra space in a container to its width. If all boxes in a container have a flex-grow of 1, then all the space left over after their flex-basis' have been calculated will be distributed evenly to all of them. */
+  flex-grow: 1;
+  /* Flex-shrink allows this flex-item to give up this proportion of it's width as the available space in the container gets smaller. */
+  flex-shrink: 10;
+  /* In an ideal situation, set the width of the flex-item to 200px. */
+  flex-basis: 400px;
+
+  /* All of the above properties can and SHOULD be replaced by the single flex property. */
+  flex: 1 10 400px;
 }
 
-/* .box2 will now be twice the size of a .box. */
 .box2 {
-  flex: 2;
-}
-
-/* Can use decimal points to represent fractions. */
-.box5 {
-  flex: .5;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 400px;
+  flex: 1 1 400px;
 }
