@@ -26,36 +26,19 @@
   display: flex;
   border: 10px solid black;
   height: 90vh;
-  /* Will align all items in the container, can use align-self to pull individual items out of this alignment. */
-  align-items: flex-start;
 }
 
+/* Sets all the flex-items to be equal width. Allows flexbox to intelligently manage the width of the items as the container changes. Normally, the width of the items is determined by the content. */
 .box {
-  width: 33.33333%;
+  flex: 1;
 }
 
-/* Add some padding to a few of the boxes to see how they line up when using align-items */
+/* .box2 will now be twice the size of a .box. */
 .box2 {
-  padding-bottom: 200px;
+  flex: 2;
 }
 
-.box6 {
-  padding-bottom: 0;
-}
-
-.box9 {
-  padding-bottom: 30px;
-}
-
-/* Override the align-items for these particular boxes and align them individually. */
-.box3 {
-  align-self: center;
-}
-
+/* Can use decimal points to represent fractions. */
 .box5 {
-  align-self: stretch;
-}
-
-.box7 {
-  align-self: flex-end;
+  flex: .5;
 }
