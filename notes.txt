@@ -52,3 +52,7 @@ The default setting for align-content is stretch, so once you have multiple rows
 ****************** A NOTE AT THIS POINT ******************
 
 There are a lot of defaults that get set once you make a container a flex-container. For the first couple of projects where I use flexbox, I should definitely explicitly define all the defaults in the stylesheet that way I'm aware that they are present and that I must manually override them if I want a different behavior.
+
+**************** Alignment and Centering with Align-Self **********************
+
+Align-self is similar to align-items, in that it aligns elements on the cross axis. Whereas align-items is applied to the flex container, align-self is applied to individual flex-items to override any calls to align-items.
