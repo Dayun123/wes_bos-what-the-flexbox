@@ -45,7 +45,24 @@ img {
 
 input {
   padding:10px;
+  margin: 5px;
   border:0;
+  flex: 1;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+input:not([type="submit"]) {
+  flex: 3;
+  max-width: 300px;
+}
+
+input[type="submit"] {
+  max-width: 200px;
 }
 
 section, footer {
@@ -56,6 +73,8 @@ section, footer {
   color:white;
   font-weight: 100;
 }
+
+
 
 /* The flex-container that holds the navigation items. */
 .flex-nav {
@@ -101,6 +120,13 @@ section, footer {
   /* Each flex-item should take up the full width of the container, effectively making them stack in a column. I'm not sure I like this amount of specificity, something to work on for sure. */
   .flex-nav li, .flex-nav .social {
     flex: 1 1 100%;
+  }
+
+  /* We want to change the order of the major sections of the page, so they need to be flex-items. In order to make them flex-items, we first need to have a flex-container to contain them in. There is a div.wrapper that is the parent of the major sections of the page, and we can use this as our flex-container. */
+  .wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
 }
