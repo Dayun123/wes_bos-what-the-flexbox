@@ -6,6 +6,7 @@ const autoprefixer = require('gulp-autoprefixer'); // prefixes for browsers
 const csso = require('gulp-csso'); // minifiy css
 const htmlmin = require('gulp-htmlmin'); // minify html
 const concat = require('gulp-concat'); // concat into one file
+const imagemin = require('gulp-imagemin') // minify images
 
 // make sure to install reset-css!
 
@@ -34,13 +35,25 @@ function html() {
     .pipe(gulp.dest('build'));
 }
 
+// Image tasks
+function img() {
+  return gulp
+    .src('./img/*')
+    .pipe(imagemin({
+      progressive: true
+    }))
+    .pipe(gulp.dest('build/img'));
+}
+
 // Watch files
 function watchFiles() {
   gulp.watch("./style.css", css); // which file to watch, and which task to run
   gulp.watch("./index.html", html);
+  gulp.watch(".img/*", img);
 }
 
 // Defines the tasks, can run on command line with gulp [task_name]
 exports.css = css; // `gulp css` on command line will run the css task
 exports.html = html;
+exports.img = img;
 exports.watch = watchFiles; // `gulp watch` will run watch task
