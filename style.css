@@ -1,6 +1,4 @@
-/* No CSS reset here, interesting! */
-
-/* Some CSS Setup - nothing to do with flexbox. Need to make sure to stick this in all projects, border-box just makes more sense than content-box. */
+/* Some CSS Setup - nothing to do with flexbox */
 html {
   box-sizing: border-box;
 }
@@ -9,18 +7,10 @@ html {
   box-sizing: inherit;
 }
 
-/* Note how the body of the page holds the background image. */
 body {
   font-family: sans-serif;
   margin: 0;
   background-image: linear-gradient(260deg, #2376ae 0%, #c16ecf 100%);
-}
-
-/* The main container for the content on the page. Setting the max-width allows us to control just how big it gets, and the padding allows the content within to not bump against the edge of the page. */
-.wrapper {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding:50px;
 }
 
 a {
@@ -32,8 +22,6 @@ a {
   padding:20px 5px;
   display: inline-block;
   width: 100%;
-  /* I added this so that the anchor tags would take up the entire hight of the enclosing <li>, this makes it where the background and hover look good if the height of some of the items is taller than others. */
-  height: 100%;
   text-align: center;
   transition:all 0.5s;
 }
@@ -42,58 +30,143 @@ a:hover {
   background:rgba(0,0,0,0.3);
 }
 
-/* Flex Container */
-.flex-nav ul {
+.toggleNav {
+  display: none;
+}
+
+img {
+  width:100%;
+}
+
+.wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+input {
+  padding:10px;
+  margin: 5px;
+  border:0;
+  flex: 1;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+input:not([type="submit"]) {
+  flex: 3;
+  max-width: 300px;
+}
+
+input[type="submit"] {
+  max-width: 200px;
+}
+
+section, footer {
+  text-align: center;
+  background:rgba(0,0,0,0.2);
+  padding:20px;
+  margin:20px 0;
+  color:white;
+  font-weight: 100;
+}
+
+
+
+/* The flex-container that holds the navigation items. */
+.flex-nav {
   border:1px solid black;
   list-style: none;
   margin: 0;
   padding: 0;
-  /* This creates a flex-container */
   display: flex;
 }
 
-/* General nav flex-items. We filter out the .social ones. */
-.flex-nav li:not(.social) {
-  /* We want the general site navigation to take up more space than the social icons, so we give them a larger flex-grow (set using shorthand prop. here). */
+/* Flex-items in the nav bar */
+.flex-nav li {
   flex: 3;
 }
 
-/* Flex-items, social */
-.flex-nav .social {
-  /*
-  Intelligently sets these properties:::
-  flex-grow: 1;
-  flex-shrink: 1;
-  flex-basis: 0%;
-  */
-  /* Set the .social icons to receive less of the extra space than the other navigation icons. */
+/* Flex-items in the nav bar that are social icons */
+.flec-nav .social {
   flex: 1;
 }
 
-/* Hits when we get to 1000px screen size and below. */
-@media all and (max-width:1000px) {
+/* Adjusted this for my smaller screen. */
+@media all and (max-width:850px) {
 
-  .flex-nav ul {
+  /* We want the nav to split over multiple rows, so we need to allow wrapping*/
+  .flex-nav {
     flex-wrap: wrap;
   }
 
-  /* We want the general navigation items to take up 50% of the width of the container, so they stack in rows of 2. I added the :not selector, as it is more specific to what we are targeting. */
-  .flex-nav li:not(.social) {
-    flex: 1 1 50%;
+  .flex-nav li {
+    flex-basis: 50%;
   }
 
-  /* We want the social icons to take up 100% of the container, and there are 4 of them so they each need 1/4 of 100%. This rule isn't neccessary in my version of Chromium, but it may be in other browsers and it makes sense. */
+  /* Makes sure that our social icons all stay in one row (there are 4, so 1/4 of 100%) */
   .flex-nav .social {
-    flex: 1 1 25%;
+    flex-basis: 25%;
   }
 
 }
 
-/* Changed this from 500px to 600px, since my browser wouldn't let it get smaller than 517px... */
-@media all and (max-width:600px) {
+/* Adjusted this for my smaller screen. */
+@media all and (max-width:550px) {
 
-  .flex-nav li:not(.social) {
+  /* Each flex-item should take up the full width of the container, effectively making them stack in a column. I'm not sure I like this amount of specificity, something to work on for sure. */
+  .flex-nav li {
     flex: 1 1 100%;
+  }
+
+  /* We want to change the order of the major sections of the page, so they need to be flex-items. In order to make them flex-items, we first need to have a flex-container to contain them in. There is a div.wrapper that is the parent of the major sections of the page, and we can use this as our flex-container. */
+  .wrapper {
+    display: flex;
+    /* We think of the main axis of the items on the page as being in a column, so it makes sense to set the flex-direction to column. */
+    flex-direction: column;
+  }
+
+  /* Select all flex-items */
+  .wrapper > * {
+    /* We want to order our items logically, like 1,2,3,4 etc..., so we set the default for all the flex-items to be a high number, that way when we start setting individual order properties things will line up correctly. */
+    order: 100;
+  }
+
+  /* Now, for re-ordering the major sections. Nav goes first. We need the .wrapper selector because we want to make sure the specificity is high enough. Wouldn't need to do this if we didn't set the order high on all of the flex-items and just manually set all of their orders. The rest of the sections have their own classes, and that is a high enough specificity to override the default. */
+  .wrapper nav {
+    order: 1;
+  }
+
+  .top {
+    order: 2;
+  }
+
+  .details {
+    order: 3;
+  }
+
+  .signup {
+    order: 4;
+  }
+
+  /* No need to set hero and footer order, as they have an order of 100 set from the general rule above so they will order themselves at the end of the document in the order they appear (so hero first, then footer) */
+
+  /* This was not displayed on the other views, we need to add it back in. */
+  .toggleNav {
+    display: block;
+  }
+
+  /* Remove the navigation from the page, it will be toggled using JavaScript. */
+  .flex-nav {
+    display: none;
+  }
+
+  /* This class will be added dynamically by JavaScript to display the nav menu when the nav button is */
+  .open {
+    display: flex;
   }
 
 }
