@@ -135,10 +135,24 @@ section, footer {
     order: 100;
   }
 
-  /* Now, for re-ordering the major sections. Nav goes first. We need the .wrapper selector because we want to make sure the specificity is high enough. Wouldn't need to do this if we didn't set the order high on all of the flex-items and just manually set all of their orders. */
+  /* Now, for re-ordering the major sections. Nav goes first. We need the .wrapper selector because we want to make sure the specificity is high enough. Wouldn't need to do this if we didn't set the order high on all of the flex-items and just manually set all of their orders. The rest of the sections have their own classes, and that is a high enough specificity to override the default. */
   .wrapper nav {
     order: 1;
   }
+
+  .top {
+    order: 2;
+  }
+
+  .details {
+    order: 3;
+  }
+
+  .signup {
+    order: 4;
+  }
+
+  /* No need to set hero and footer order, as they have an order of 100 set from the general rule above so they will order themselves at the end of the document in the order they appear (so hero first, then footer) */
 
   /* This was not displayed on the other views, we need to add it back in. */
   .toggleNav {
