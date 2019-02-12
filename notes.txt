@@ -107,3 +107,12 @@ Flexbox works great when you need to reorder some of the page content for differ
 
 ### CSS Stuff
   - I like using more specific css selectors than Wes, but that also means that I have to keep this specificity up as I add styles in the breakpoints (the li:not(.social) for example). I read an article by Chris Coyier (https://css-tricks.com/strategies-keeping-css-specificity-low/) that encourages low specificity, and I will be trying to do this in my own work from now on.
+
+When you want to set the ordering for the elements on the entire page, you need to make all major sections flex-items. To do this, make sure you have a wrapper around all the major sections and then make this wrapper a flex-container. Once you have a flex-container, you will need to set the main axis to be vertical, since we think of the sections on a page as being vertically aligned, so set the flex-direction to column.
+
+To order the elements, there are two methods:
+
+  1. Set all the flex-items to have a high order, then select the individual items and set their order property.
+  2. Select every item and set it's order property.
+
+Not sure which approach is better. The first means you have to always worry about specificty, the second forces you to set the order property for every element.
