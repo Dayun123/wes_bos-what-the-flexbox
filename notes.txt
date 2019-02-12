@@ -97,3 +97,13 @@ Once Gulp is setup, we go into our gulpfile and setup tasks that we want Gulp to
   - Use curl on the command line to do this! View the raw html and css files, then copy the URL and enter into curl: `curl -o |filename| -L |url|`
 
 Creating nav is simple, simply use the semantic <nav> element, then place a <ul> inside with <li><a> links that will be the flex items. Once you setup flexbox on the container, you just need to control the sizing of the items at different screen sizes using the flex property and make sure to allow for wrapping. That's it!
+
+****************** Mobile Reordering with Flexbox **************************
+
+Flexbox works great when you need to reorder some of the page content for different screen sizes. In this example, we will switch up the ordering of some of the page sections as the screen size hits a mobile breakpoint using flexbox.
+
+#### Build Steps
+  - I've added a bunch of different tasks and packages to the gulpfile, still learning how the build steps work so this is definitely NOT correct yet but at least I have a build step setup. Definitely need to spend a day or two with Gulp and really nail down how it works. I should have some sort of clean task that wipes the build directory between builds, and I should also know how to run multiple tasks at once as well as how to correctly write out the tasks in Gulp 4 syntax.
+
+### CSS Stuff
+  - I like using more specific css selectors than Wes, but that also means that I have to keep this specificity up as I add styles in the breakpoints (the li:not(.social) for example). I read an article by Chris Coyier (https://css-tricks.com/strategies-keeping-css-specificity-low/) that encourages low specificity, and I will be trying to do this in my own work from now on.

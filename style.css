@@ -57,8 +57,8 @@ section, footer {
   font-weight: 100;
 }
 
-/* Flex Container */
-.flex-nav ul {
+/* The flex-container that holds the navigation items. */
+.flex-nav {
   border:1px solid black;
   list-style: none;
   margin: 0;
@@ -66,13 +66,13 @@ section, footer {
   display: flex;
 }
 
-/* Flex-items, general nav */
-.flex-nav li:not(.social) {
+/* Flex-items in the nav bar */
+.flex-nav li {
   flex: 3;
 }
 
-/* Flex-items, social */
-.flex-nav .social {
+/* Flex-items in the nav bar that are social icons */
+.flec-nav .social {
   flex: 1;
 }
 
@@ -80,11 +80,11 @@ section, footer {
 @media all and (max-width:850px) {
 
   /* We want the nav to split over multiple rows, so we need to allow wrapping*/
-  .flex-nav ul {
+  .flex-nav {
     flex-wrap: wrap;
   }
 
-  .flex-nav li:not(.social) {
+  .flex-nav li {
     flex-basis: 50%;
   }
 
@@ -98,8 +98,8 @@ section, footer {
 /* Adjusted this for my smaller screen. */
 @media all and (max-width:550px) {
 
-  /* Each flex-item should take up the full width of the container, effectively making them stack in a column. Notice that since we have used very specific selectors above, we need to use those same selectors here in order to override them. */
-  .flex-nav li:not(.social), .flex-nav .social {
+  /* Each flex-item should take up the full width of the container, effectively making them stack in a column. I'm not sure I like this amount of specificity, something to work on for sure. */
+  .flex-nav li, .flex-nav .social {
     flex: 1 1 100%;
   }
 
