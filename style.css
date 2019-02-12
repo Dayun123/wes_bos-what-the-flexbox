@@ -26,23 +26,17 @@
   display: flex;
   border: 10px solid black;
   height: 90vh;
+  flex-wrap: wrap;
+  flex-direction: column;
 }
 
-.box1 {
-  /* Hard to explain how the proportions work here... Basically, setting the flex-grow property will allow this box to add the extra space in a container to its width. If all boxes in a container have a flex-grow of 1, then all the space left over after their flex-basis' have been calculated will be distributed evenly to all of them. */
+.box {
+  /* Sets the desired width for all the boxes. Will need to set |flex-wrap: wrap| on the parent flex-container in order to see this in action if there are too many boxes on the main axis. */
+  flex-basis: 250px;
   flex-grow: 1;
-  /* Flex-shrink allows this flex-item to give up this proportion of it's width as the available space in the container gets smaller. */
-  flex-shrink: 10;
-  /* In an ideal situation, set the width of the flex-item to 200px. */
-  flex-basis: 400px;
 
-  /* All of the above properties can and SHOULD be replaced by the single flex property. */
-  flex: 1 10 400px;
 }
 
-.box2 {
-  flex-grow: 1;
-  flex-shrink: 1;
-  flex-basis: 400px;
-  flex: 1 1 400px;
+.box3 {
+  flex-grow: 5;
 }

@@ -66,3 +66,7 @@ One of the main purposes of the flexbox layout style is to deal with the distrib
 ****** Understanding Flexbox Sizing, flex-grow, flex-shrink, flex-basis *******
 
 The flex-grow, flex-shrink, and flex-basis properties control how flex-items distribute extra space in the container (flex-grow), or how they deal with when there is not enough space in the container (flex-shrink), and what the ideal size of each element is (flex-basis.). All three of these properties can be set individually, but you should always use the shorthand flex property to set them as the browser will intelligently handle stuff you leave out if you only set the flex-grow like we did the previous lesson.
+
+************ How flex-basis and wrapping Work Together *******************
+
+No meaningful notes, just play around with flex-basis, wrap vs. no-wrap, and changing the flex-direction from row to column. Note that when the flex-direction is column, you will need to account for the height of the container if you want to see the columns wrap, since the browser will naturally just allow the user to scroll when content spills below the screen.
