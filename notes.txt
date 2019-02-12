@@ -89,3 +89,11 @@ First things first, you have to setup Gulp.
 Once Gulp is setup, we go into our gulpfile and setup tasks that we want Gulp to perform. In our case, we want Gulp to run our CSS file through autoprefixer then give us a new CSS file with the vendor prefixes added. This new file will be the file we actually link in our HTML document. Read up online about how to setup Gulp tasks for whichever version you are running.
  - This is a really powerful tool, we can run all sorts of tasks like minification, image compression, etc...
  - One of the great things is you can setup a 'watch' task to basically monitor certain files and anytime there is a change (like when you edit and save a css file) you can tell Gulp to perform a gulp task. In our case, we have Gulp watch the style.css file, and anytime we save it, we have Gulp run the autoprefixer and output the prefixed css file.
+
+
+ ******************************** Nav Code Along ******************************
+
+ Flexbox is great for coding navigation menus. In this section, we will use new html and css files, so delete the old ones and download the new ones from: https://github.com/wesbos/What-The-Flexbox/tree/master/flexbox-nav.
+  - Use curl on the command line to do this! View the raw html and css files, then copy the URL and enter into curl: `curl -o |filename| -L |url|`
+
+Creating nav is simple, simply use the semantic <nav> element, then place a <ul> inside with <li><a> links that will be the flex items. Once you setup flexbox on the container, you just need to control the sizing of the items at different screen sizes using the flex property and make sure to allow for wrapping. That's it!
