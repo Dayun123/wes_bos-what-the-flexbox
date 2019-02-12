@@ -70,3 +70,22 @@ The flex-grow, flex-shrink, and flex-basis properties control how flex-items dis
 ************ How flex-basis and wrapping Work Together *******************
 
 No meaningful notes, just play around with flex-basis, wrap vs. no-wrap, and changing the flex-direction from row to column. Note that when the flex-direction is column, you will need to account for the height of the container if you want to see the columns wrap, since the browser will naturally just allow the user to scroll when content spills below the screen.
+
+******** Using Autoprefixer to Provide Cross-Browser Support, Gulp Setup ******
+
+Flexbox has gone through a few different iterations since it was introduced, and because of this there can be issues with flexbox properties between older versions of browsers. To ensure that our modern flexbox code runs on older browsers, we need to introduce a build step, which will be running our css files through a tool called autoprefixer. Autoprefixer will parse our css and find any style rules that need vendor prefixes (-mox, -ms, etc...) to work across different browsers and older browser versions. We could simply run our css file through the autoprefixer command line tool, or copy and paste it into an online tool, but that would mean we would need to do this everytime we updated our css file. Introducing a build step, using the automated task runner Gulp, will insure that we can create and edit our css file and be sure that it is constantly being parsed and formatted for browsers with autoprefixer.
+
+
+######## The video used an old verson of Gulp (3.9). With the new version (4.0), I had to do some digging online to figure things out. Just google how to do all of the installs since this stuff changes so often there is no reason to write out the steps here ########
+
+First things first, you have to setup Gulp.
+  - To get Gulp, you need Node.js, so install that first.
+    - Once you have Node, you will have a JavaScript package manager named npm installed as well.
+  - Make sure you have the latest versions of Node and npm, then you can create the package.json file in the root directory of your project. This file will hold the version information and package dependencies for your project (which for our purposes will be gulp and gulp-autoprefixer).
+  - Once you have this file, you can install Gulp into your project (use instructions online for all installs...). You should see it in your package.json file.
+  - Once Gulp is installed, you will need a gulpfile.js in the root of your project. This file will be where you define tasks that you would like Gulp to perform for you.
+  - Since we want to use Gulp to run the Autoprefixer tool on our CSS, we need to install Autoprefixer (gulp-autoprefixer) into our project using npm. We should see a dependency in package.json file after this.
+
+Once Gulp is setup, we go into our gulpfile and setup tasks that we want Gulp to perform. In our case, we want Gulp to run our CSS file through autoprefixer then give us a new CSS file with the vendor prefixes added. This new file will be the file we actually link in our HTML document. Read up online about how to setup Gulp tasks for whichever version you are running.
+ - This is a really powerful tool, we can run all sorts of tasks like minification, image compression, etc...
+ - One of the great things is you can setup a 'watch' task to basically monitor certain files and anytime there is a change (like when you edit and save a css file) you can tell Gulp to perform a gulp task. In our case, we have Gulp watch the style.css file, and anytime we save it, we have Gulp run the autoprefixer and output the prefixed css file.

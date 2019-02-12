@@ -37,6 +37,19 @@
 
 }
 
+.box1 {
+  flex-basis: 200px;
+}
+
+.box2 {
+  flex-grow: 10;
+}
+
 .box3 {
+  flex-basis: 300px;
   flex-grow: 5;
+}
+
+.box4 {
+  flex: 1 4 500px;
 }
