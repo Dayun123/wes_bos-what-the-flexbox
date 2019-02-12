@@ -1,6 +1,4 @@
-/* No CSS reset here, interesting! */
-
-/* Some CSS Setup - nothing to do with flexbox. Need to make sure to stick this in all projects, border-box just makes more sense than content-box. */
+/* Some CSS Setup - nothing to do with flexbox */
 html {
   box-sizing: border-box;
 }
@@ -9,18 +7,10 @@ html {
   box-sizing: inherit;
 }
 
-/* Note how the body of the page holds the background image. */
 body {
   font-family: sans-serif;
   margin: 0;
   background-image: linear-gradient(260deg, #2376ae 0%, #c16ecf 100%);
-}
-
-/* The main container for the content on the page. Setting the max-width allows us to control just how big it gets, and the padding allows the content within to not bump against the edge of the page. */
-.wrapper {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding:50px;
 }
 
 a {
@@ -32,8 +22,6 @@ a {
   padding:20px 5px;
   display: inline-block;
   width: 100%;
-  /* I added this so that the anchor tags would take up the entire hight of the enclosing <li>, this makes it where the background and hover look good if the height of some of the items is taller than others. */
-  height: 100%;
   text-align: center;
   transition:all 0.5s;
 }
@@ -42,58 +30,47 @@ a:hover {
   background:rgba(0,0,0,0.3);
 }
 
+.toggleNav {
+  display: none;
+}
+
+img {
+  width:100%;
+}
+
+.wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+input {
+  padding:10px;
+  border:0;
+}
+
+
+section, footer {
+  text-align: center;
+  background:rgba(0,0,0,0.2);
+  padding:20px;
+  margin:20px 0;
+  color:white;
+  font-weight: 100;
+}
+
 /* Flex Container */
 .flex-nav ul {
   border:1px solid black;
   list-style: none;
   margin: 0;
   padding: 0;
-  /* This creates a flex-container */
-  display: flex;
 }
 
-/* General nav flex-items. We filter out the .social ones. */
-.flex-nav li:not(.social) {
-  /* We want the general site navigation to take up more space than the social icons, so we give them a larger flex-grow (set using shorthand prop. here). */
-  flex: 3;
-}
-
-/* Flex-items, social */
-.flex-nav .social {
-  /*
-  Intelligently sets these properties:::
-  flex-grow: 1;
-  flex-shrink: 1;
-  flex-basis: 0%;
-  */
-  /* Set the .social icons to receive less of the extra space than the other navigation icons. */
-  flex: 1;
-}
-
-/* Hits when we get to 1000px screen size and below. */
 @media all and (max-width:1000px) {
 
-  .flex-nav ul {
-    flex-wrap: wrap;
-  }
-
-  /* We want the general navigation items to take up 50% of the width of the container, so they stack in rows of 2. I added the :not selector, as it is more specific to what we are targeting. */
-  .flex-nav li:not(.social) {
-    flex: 1 1 50%;
-  }
-
-  /* We want the social icons to take up 100% of the container, and there are 4 of them so they each need 1/4 of 100%. This rule isn't neccessary in my version of Chromium, but it may be in other browsers and it makes sense. */
-  .flex-nav .social {
-    flex: 1 1 25%;
-  }
-
 }
 
-/* Changed this from 500px to 600px, since my browser wouldn't let it get smaller than 517px... */
-@media all and (max-width:600px) {
 
-  .flex-nav li:not(.social) {
-    flex: 1 1 100%;
-  }
-
+@media all and (max-width:500px) {
+  
 }
