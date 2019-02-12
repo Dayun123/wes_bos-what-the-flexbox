@@ -48,7 +48,6 @@ input {
   border:0;
 }
 
-
 section, footer {
   text-align: center;
   background:rgba(0,0,0,0.2);
@@ -77,11 +76,31 @@ section, footer {
   flex: 1;
 }
 
-@media all and (max-width:1000px) {
+/* Adjusted this for my smaller screen. */
+@media all and (max-width:850px) {
+
+  /* We want the nav to split over multiple rows, so we need to allow wrapping*/
+  .flex-nav ul {
+    flex-wrap: wrap;
+  }
+
+  .flex-nav li:not(.social) {
+    flex-basis: 50%;
+  }
+
+  /* Not really neccessary, but will do it to show that we want all 4 items to take equal space on the line they are on. */
+  .flex-nav .social {
+    flex-basis: 25%;
+  }
 
 }
 
+/* Adjusted this for my smaller screen. */
+@media all and (max-width:550px) {
 
-@media all and (max-width:500px) {
+  /* Each flex-item should take up the full width of the container, effectively making them stack in a column. Notice that since we have used very specific selectors above, we need to use those same selectors here in order to override them. */
+  .flex-nav li:not(.social), .flex-nav .social {
+    flex: 1 1 100%;
+  }
 
 }
