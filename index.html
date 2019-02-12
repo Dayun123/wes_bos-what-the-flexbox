@@ -62,7 +62,18 @@
 
   </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <!-- Wes uses jQuery, I just created a simple script that does the same thing so we don't have to import and use a whole library -->
+  <script type="text/javascript">
+
+    var toggleNav = document.getElementsByClassName('toggleNav')[0];
+    var flexNav = document.getElementsByClassName('flex-nav')[0];
+    toggleNav.addEventListener('click', function() {
+        flexNav.classList.add('open');
+    });
+
+  </script>
+
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script>
 
     $(function() {
@@ -71,6 +82,6 @@
       });
     });
 
-  </script>
+  </script> -->
 </body>
 </html>

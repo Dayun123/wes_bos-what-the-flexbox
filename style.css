@@ -140,4 +140,19 @@ section, footer {
     order: 1;
   }
 
+  /* This was not displayed on the other views, we need to add it back in. */
+  .toggleNav {
+    display: block;
+  }
+
+  /* Remove the navigation from the page, it will be toggled using JavaScript. */
+  .flex-nav {
+    display: none;
+  }
+
+  /* This class will be added dynamically by JavaScript to display the nav menu when the nav button is */
+  .open {
+    display: flex;
+  }
+
 }

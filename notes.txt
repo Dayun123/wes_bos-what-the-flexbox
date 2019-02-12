@@ -116,3 +116,8 @@ To order the elements, there are two methods:
   2. Select every item and set it's order property.
 
 Not sure which approach is better. The first means you have to always worry about specificty, the second forces you to set the order property for every element.
+
+Setting up the toggle navigation is pretty cool. Basically, you have the little bar that will be a button to toggle the navigation on the html document the whole time, but you remove it from the DOM with display: none for larger screen sizes. Once we hit the mobile breakpoint and shift the nav to the top of the page, we can then add the toggle bar back to DOM by giving it a display: block and then remove the nav bar from the DOM using display: none. We will trigger the nav to return using JavaScript.
+
+### JavaScript Stuff
+  - Wes uses jQuery to trigger the nav button, but all he is essentially doing is adding an event listener to a dom element (the nav button) and then performing an action (adding the .open class to the nav bar) when that button is clicked. This is easy enough to do in vanilla JS, so I just coded that up for a little practice and commented out Wes' jQuery.
